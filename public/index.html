@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="css/style.css" rel="stylesheet" type="text/css">
+    <title>Magic</title>
+    <script src="https://code.jquery.com/jquery-3.5.0.min.js" integrity="sha256-xNzN2a4ltkB44Mc/Jz3pT4iU1cmeR0FkXs4pru/JxaQ=" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="js/javascript.js"></script>
+    
+    <script>
+        // var currpage, pagelimit, totalrows;
+
+        // currpage = 2;
+        // pagelimit = 5;
+
+        // //custom script
+        // //let queryurl = 'https://baconipsum.com/api/?type=meat-and-filler';
+        // let queryurl = "http://localhost:3000/basic/data?companyId=0&audienceCount=0"
+        // function magic(){
+        //     $.get(queryurl, (data) =>{
+        //         $('#http_response').text(JSON.stringify(data, null, 4))
+        //     });
+        //     //login(data).then(result=>console.log(result)).catch(err=>console.log(err))
+        // }
+
+
+        // function getData(companyId, audienceCount, currpage, pagelimit) {
+
+        //     var URL ="http://localhost:3000/basic/data?companyId=" + companyId + "&audienceCount=" + audienceCount + "&currPage=" + currpage + "&pageLimit=" + pagelimit;
+        //     $(()=>{
+        //         var settings = {
+        //             "url":URL,
+        //             "method":"GET",
+        //             "headers": {
+        //                 "Content-Type": "application/x-www-form-urlencoded"
+        //             }
+        //         };
+        //         $.ajax(settings)
+        //         .done(function (response) {
+        //             console.log("Successfully selected options");
+        //             console.log(response);
+
+        //         if(response.length > 0){
+
+        //             var optionHtml = '';
+        //             // Adding option to data viewing table
+        //             for (i = 0 ; i < response.length ; i++) {
+        //                 optionHtml += `<tr class="options">
+        //                 <td class="col_optionid">${response[i].optionId}</td>
+        //                 <td class="col_companyId">${response[i].companyId}</td>
+        //                 <td class="col_audienceCount">${response[i].audienceCount}</td>
+        //                 <td class="col_cost">${response[i].cost}</td>
+        //                 </tr>`;
+                        
+        //             }
+        //             console.log(optionHtml)
+        //             $("#dataView tbody").html(optionHtml);
+                
+
+                    
+        //         }
+
+        //         // if(response.length > 0){
+        //         //         // Adding option to data viewing table
+        //         //         for (i = 0 ; i < response.length ; i++) {
+        //         //             var optionHtml = `
+        //         //             <tr class="options">
+
+        //         //                 <td class="col_optionid">${response[i].optionId}</td>
+        //         //                 <td class="col_companyId">${response[i].companyId}</td>
+        //         //                 <td class="col_audienceCount">${response[i].audienceCount}</td>
+        //         //                 <td class="col_cost">${response[i].cost}</td>
+
+        //         //             </tr>
+        //         //             `;
+        //         //             $("#dataView tbody").append(optionHtml);
+        //         //         }
+        //         //     }
+
+        //         })
+        //     });
+        // }
+
+    </script>
+</head>
+<body>
+    <button id="magic">Click for Magic</button>
+    <pre id="http_response">
+
+    </pre>
+
+    
+    <pre id="dTable">
+        <select name="pageLimit" class="pageLimit">
+            <option value="2">2</option>
+            <option value="4">4</option>
+            <option value="6">6</option>
+        </select> <input type="text" name="companyId" id="companyId" /> <input type="text" name="audienceCount" id="audienceCount" /> <button id="getData">Fetch Data Now</button>
+        <table id="dataView">
+            <thead>
+                <tr class="optionsHeader">
+                    <td> Option ID</td>
+                    <td> Company ID </td>
+                    <td> Audience Count </td>
+                    <td> Cost </td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td colspan="4"> No Data available</td></tr>
+                
+            </tbody>
+            
+        </table>
+        <button id="previousPage"> &#60; </button> <button id="nextPage"> &#62; </button>
+    </pre>
+</body>
+</html>

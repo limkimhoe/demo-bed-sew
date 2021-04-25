@@ -23,8 +23,12 @@ function ObjToArray(obj) {
 
 
 // get options + filter
-advertDB.getOptions = function(companyId,audienceCount,callback){
+advertDB.getOptions = function(companyId,audienceCount,currPage, pageLimit, callback){
     var conn = db.getConnection();
+
+    var offsetNum = ((currPage - 1) * pageLimit);
+
+    console.log(currPage, pageLimit);
 
     conn.connect((err)=>{
         if (err) {
@@ -32,7 +36,7 @@ advertDB.getOptions = function(companyId,audienceCount,callback){
         }
         else {
             if (companyId == 0 && audienceCount != 0) {
-                var queryStmt = "SELECT * FROM advertisementOptions WHERE audienceCount=?";
+                var queryStmt = "SELECT * FROM advertisementOptions WHERE audienceCount=? limit " + pageLimit + " offset " + offsetNum;
 
                 conn.query(queryStmt,[audienceCount],(err,result)=>{
                     if (err) {
@@ -45,7 +49,9 @@ advertDB.getOptions = function(companyId,audienceCount,callback){
                 });
             }
             else if (companyId != 0 && audienceCount == 0) {
-                var queryStmt = "SELECT * FROM advertisementOptions WHERE companyId=?";
+                console.log(companyId, audienceCount, currPage, pageLimit)
+
+                var queryStmt = "SELECT * FROM advertisementOptions WHERE companyId=? limit " + pageLimit + " offset " + offsetNum;
 
                 conn.query(queryStmt,[companyId],(err,result)=>{
                     if (err) {
@@ -58,7 +64,9 @@ advertDB.getOptions = function(companyId,audienceCount,callback){
                 });
             }
             else if (companyId == 0 && audienceCount == 0) {
-                var queryStmt = "SELECT * FROM advertisementOptions";
+                var queryStmt = "SELECT * FROM advertisementOptions limit " + pageLimit + " offset " + offsetNum;
+
+                console.log(queryStmt);
 
                 conn.query(queryStmt,[],(err,result)=>{
                     if (err) {
@@ -71,7 +79,7 @@ advertDB.getOptions = function(companyId,audienceCount,callback){
                 });
             }
             else if (companyId != 0 && audienceCount != 0) {
-                var queryStmt = "SELECT * FROM advertisementOptions WHERE companyId=? AND audienceCount=?";
+                var queryStmt = "SELECT * FROM advertisementOptions WHERE companyId=? AND audienceCount=? limit " + pageLimit + " offset " + offsetNum;
 
                 conn.query(queryStmt,[companyId,audienceCount],(err,result)=>{
                     if (err) {

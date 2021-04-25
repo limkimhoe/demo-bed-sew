@@ -1,0 +1,22 @@
+#dataView {
+    width: 50%;
+    margin: 0 auto;
+}
+
+th, td {
+    text-align: left;
+    padding: 8px;
+  }
+  
+#dataView tr:nth-child(even) {background-color: #f2f2f2;}
+
+#dTable{
+    text-align: center;
+  }
+
+.optionsHeader{
+    padding: 5px 3px;
+    font-weight: bold;
+    background-color: #666;
+    color: #FFF;
+}
