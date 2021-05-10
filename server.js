@@ -16,8 +16,9 @@ app.get("/", (req, res) => {
   res.json({ message: "Welcome to bezkoder application." });
 });
 
+const PORT = process.env.PORT || 5000
 
 // set port, listen for requests
-app.listen(5000, () => {
-    console.log("Server is running on port 5000.");
+app.listen(PORT, () => {
+    console.log(`Server is running on port ${ PORT }.`);
 });
