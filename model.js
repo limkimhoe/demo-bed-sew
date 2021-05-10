@@ -36,7 +36,7 @@ advertDB.getOptions = function(companyId,audienceCount,currPage, pageLimit, call
         }
         else {
             if (companyId == 0 && audienceCount != 0) {
-                var queryStmt = "SELECT * FROM advertisementOptions WHERE audienceCount=? limit " + pageLimit + " offset " + offsetNum;
+                var queryStmt = "SELECT * FROM AdvertisementOptions WHERE audienceCount=? limit " + pageLimit + " offset " + offsetNum;
 
                 conn.query(queryStmt,[audienceCount],(err,result)=>{
                     if (err) {
@@ -51,7 +51,7 @@ advertDB.getOptions = function(companyId,audienceCount,currPage, pageLimit, call
             else if (companyId != 0 && audienceCount == 0) {
                 console.log(companyId, audienceCount, currPage, pageLimit)
 
-                var queryStmt = "SELECT * FROM advertisementOptions WHERE companyId=? limit " + pageLimit + " offset " + offsetNum;
+                var queryStmt = "SELECT * FROM AdvertisementOptions WHERE companyId=? limit " + pageLimit + " offset " + offsetNum;
 
                 conn.query(queryStmt,[companyId],(err,result)=>{
                     if (err) {
@@ -64,7 +64,7 @@ advertDB.getOptions = function(companyId,audienceCount,currPage, pageLimit, call
                 });
             }
             else if (companyId == 0 && audienceCount == 0) {
-                var queryStmt = "SELECT * FROM advertisementOptions limit " + pageLimit + " offset " + offsetNum;
+                var queryStmt = "SELECT * FROM AdvertisementOptions limit " + pageLimit + " offset " + offsetNum;
 
                 console.log(queryStmt);
 
@@ -79,8 +79,7 @@ advertDB.getOptions = function(companyId,audienceCount,currPage, pageLimit, call
                 });
             }
             else if (companyId != 0 && audienceCount != 0) {
-                var queryStmt = "SELECT * FROM advertisementOptions WHERE companyId=? AND audienceCount=? limit " + pageLimit + " offset " + offsetNum;
-
+                var queryStmt = "SELECT * FROM A
                 conn.query(queryStmt,[companyId,audienceCount],(err,result)=>{
                     if (err) {
                         console.log("ERROR -- cannot get options");
