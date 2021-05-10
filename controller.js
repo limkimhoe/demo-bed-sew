@@ -33,7 +33,7 @@ app.get("/basic/data",(req,res)=>{
     const currPage = req.query.currPage;
     const pageLimit = req.query.pageLimit;
 
-    
+    console.log(companyId, audienceCount, currPage, pageLimit);
 
     advertDB.getOptions(companyId, audienceCount, currPage, pageLimit, (err,result)=>{
         if (err) {
