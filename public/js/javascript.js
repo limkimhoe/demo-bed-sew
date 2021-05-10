@@ -58,7 +58,7 @@ $(function() {
 
             var data = { companyId : companyIdv, audienceCount: audienceCountv, currPage : currpage, pageLimit : pagelimit }
 
-            var URL ="http://localhost:3000/basic/data"; //URI
+            var URL ="https://sgussew.herokuapp.com/basic/data"; //URI
             $(()=>{
                 var settings = {
                     "url":URL,
