@@ -79,7 +79,8 @@ advertDB.getOptions = function(companyId,audienceCount,currPage, pageLimit, call
                 });
             }
             else if (companyId != 0 && audienceCount != 0) {
-                var queryStmt = "SELECT * FROM A
+                var queryStmt = "SELECT * FROM AdvertisementOptions WHERE companyId=? AND audienceCount=? limit " + pageLimit + " offset " + offsetNum;
+
                 conn.query(queryStmt,[companyId,audienceCount],(err,result)=>{
                     if (err) {
                         console.log("ERROR -- cannot get options");
